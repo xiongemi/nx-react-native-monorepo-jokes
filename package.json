@@ -7,7 +7,7 @@
   "dependencies": {
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-native": "0.72.3",
+    "react-native": "0.72.4",
     "tslib": "^2.3.0"
   },
   "devDependencies": {
@@ -20,9 +20,6 @@
     "@nx/linter": "16.8.1",
     "@nx/react-native": "16.8.1",
     "@nx/workspace": "16.8.1",
-    "@react-native-community/cli": "11.3.5",
-    "@react-native-community/cli-platform-android": "11.3.5",
-    "@react-native-community/cli-platform-ios": "11.3.5",
     "@react-native/metro-config": "^0.72.9",
     "@testing-library/jest-dom": "5.16.5",
     "@testing-library/jest-native": "5.4.2",
@@ -30,7 +27,6 @@
     "@types/jest": "^29.4.0",
     "@types/node": "18.14.4",
     "@types/react": "18.0.28",
-    "@types/react-native": "0.72.2",
     "@typescript-eslint/eslint-plugin": "^5.60.1",
     "@typescript-eslint/parser": "^5.60.1",
     "babel-jest": "^29.4.1",
