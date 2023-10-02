@@ -13,17 +13,17 @@
   "devDependencies": {
     "@babel/core": "^7.14.5",
     "@babel/preset-react": "^7.14.5",
-    "@nx/detox": "16.8.1",
-    "@nx/eslint-plugin": "16.8.1",
-    "@nx/jest": "16.8.1",
-    "@nx/js": "16.8.1",
-    "@nx/linter": "16.8.1",
-    "@nx/react-native": "16.8.1",
-    "@nx/workspace": "16.8.1",
-    "@react-native/metro-config": "^0.72.9",
+    "@nx/detox": "16.9.1",
+    "@nx/eslint-plugin": "16.9.1",
+    "@nx/jest": "16.9.1",
+    "@nx/js": "16.9.1",
+    "@nx/linter": "16.9.1",
+    "@nx/react-native": "16.9.1",
+    "@nx/workspace": "16.9.1",
+    "@react-native/metro-config": "0.72.11",
     "@testing-library/jest-dom": "5.16.5",
-    "@testing-library/jest-native": "5.4.2",
-    "@testing-library/react-native": "12.1.2",
+    "@testing-library/jest-native": "5.4.3",
+    "@testing-library/react-native": "12.3.0",
     "@types/jest": "^29.4.0",
     "@types/node": "18.14.4",
     "@types/react": "18.0.28",
@@ -47,7 +47,7 @@
     "metro-react-native-babel-preset": "0.76.7",
     "metro-react-native-babel-transformer": "0.76.7",
     "metro-resolver": "0.76.7",
-    "nx": "16.8.1",
+    "nx": "16.9.1",
     "prettier": "^2.6.2",
     "react-native-svg": "13.9.0",
     "react-native-svg-transformer": "1.0.0",
@@ -57,3 +57,4 @@
     "typescript": "~5.1.3"
   }
 }
+
