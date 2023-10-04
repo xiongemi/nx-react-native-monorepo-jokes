@@ -12,6 +12,9 @@ npm install react-native-web react-native-svg-web --save-dev
 
 # yarn
 yarn add react-native-web react-native-svg-web --dev
+
+# pnpm
+pnpm add react-native-web react-native-svg-web --save-dev
 ```
 
 ## Create a React App in the Monorepo
