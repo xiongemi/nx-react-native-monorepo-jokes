@@ -34,6 +34,9 @@ export function Carousel({
     error: {
       color: theme.colors.error,
     },
+    marginTop: {
+      marginTop: 8,
+    },
   });
   return (
     <Card mode="contained" testID="carousel-card" style={styles.carouselCard}>
@@ -43,7 +46,12 @@ export function Carousel({
           <Card.Content testID="carousel-card-content">
             {title && <Title testID="carousel-title">{title}</Title>}
             {lines?.map((line, index) => (
-              <Text variant="bodyLarge" testID="carousel-text" key={index}>
+              <Text
+                variant="titleLarge"
+                testID="carousel-text"
+                key={index}
+                style={styles.marginTop}
+              >
                 {line}
               </Text>
             ))}
@@ -62,12 +70,18 @@ export function Carousel({
         <>
           <Text
             style={styles.error}
-            variant="titleLarge"
+            variant="headlineMedium"
             testID="carousel-failed"
           >
-            Failed to load. Please make sure you are connected to network.
+            Failed to load.
+            Please make sure you are connected to network.
           </Text>
-          <Button icon="alert" mode="contained" onPress={onReload}>
+          <Button
+            icon="alert"
+            mode="contained"
+            onPress={onReload}
+            style={styles.marginTop}
+          >
             Reload
           </Button>
         </>

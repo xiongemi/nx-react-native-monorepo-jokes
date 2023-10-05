@@ -15,17 +15,17 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@nx-react-native-monorepo-jokes/queries/use-tech-joke": [
-        "libs/queries/use-tech-joke/src/index.ts"
-      ],
+      "@nx-react-native-monorepo-jokes/models": ["libs/models/src/index.ts"],
       "@nx-react-native-monorepo-jokes/queries/test-wrapper": [
         "libs/queries/test-wrapper/src/index.ts"
+      ],
+      "@nx-react-native-monorepo-jokes/queries/use-tech-joke": [
+        "libs/queries/use-tech-joke/src/index.ts"
       ],
       "@nx-react-native-monorepo-jokes/states/joke": [
         "libs/states/joke/src/index.ts"
       ],
-      "@nx-react-native-monorepo-jokes/ui": ["libs/ui/src/index.ts"],
-      "@nx-react-native-monorepo-jokes/models": ["libs/models/src/index.ts"]
+      "@nx-react-native-monorepo-jokes/ui": ["libs/ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

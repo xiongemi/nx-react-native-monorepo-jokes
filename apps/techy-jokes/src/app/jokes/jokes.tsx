@@ -1,7 +1,7 @@
 import { useTechJoke } from '@nx-react-native-monorepo-jokes/queries/use-tech-joke';
 import { ActionButton, CarouselPage } from '@nx-react-native-monorepo-jokes/ui';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { MD3Colors } from 'react-native-paper';
+import { useTheme } from 'react-native-paper';
 import { connect } from 'react-redux';
 import { JokesProps, mapDispatchToProps, mapStateToProps } from './jokes.props';
 import { RouteProp, useRoute } from '@react-navigation/native';
@@ -13,6 +13,7 @@ export function Jokes({
   getLastViewedJoke,
   removeFromViewed,
 }: JokesProps) {
+  const theme = useTheme();
   const route = useRoute<RouteProp<{ params: { id: number } }>>();
   const id = useRef<number | undefined>(route.params?.id);
   const [isLoading, setIsLoading] = useState(true);
@@ -25,18 +26,20 @@ export function Jokes({
   const onFetchJoke = useCallback(() => {
     refetch().then((queryResult) => {
       if (queryResult.data) {
-        setJoke([
-          queryResult.data.joke,
-          queryResult.data.setup,
-          queryResult.data.delivery,
-        ]);
+        setJoke(
+          [
+            queryResult.data.joke,
+            queryResult.data.setup,
+            queryResult.data.delivery,
+          ].filter(Boolean) as string[]
+        );
         viewed({
           id: queryResult.data.id,
           lines: [
             queryResult.data.joke,
             queryResult.data.setup,
             queryResult.data.delivery,
-          ],
+          ].filter(Boolean) as string[],
         });
       }
       setIsLoading(queryResult.isLoading || queryResult.isFetching);
@@ -88,8 +91,8 @@ export function Jokes({
         <ActionButton
           testID="back-button"
           icon="arrow-left"
-          containerColor={MD3Colors.secondary80}
-          iconColor={MD3Colors.secondary50}
+          containerColor={theme.colors.primaryContainer}
+          iconColor={theme.colors.primary}
           disabled={!getLastViewedJoke?.id}
           onPress={onBackPress}
           isLoading={isLoading}
@@ -99,8 +102,8 @@ export function Jokes({
         <ActionButton
           testID="like-button"
           icon="lightbulb"
-          containerColor={MD3Colors.error80}
-          iconColor={MD3Colors.error50}
+          containerColor={theme.colors.errorContainer}
+          iconColor={theme.colors.error}
           onPress={onLikePress}
           isLoading={isLoading}
           isSuccess={isSuccess}
@@ -109,8 +112,8 @@ export function Jokes({
         <ActionButton
           testID="next-button"
           icon="close"
-          containerColor={MD3Colors.primary80}
-          iconColor={MD3Colors.primary50}
+          containerColor={theme.colors.tertiaryContainer}
+          iconColor={theme.colors.tertiary}
           onPress={onFetchJoke}
           isLoading={isLoading}
           isSuccess={isSuccess}

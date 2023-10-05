@@ -29,6 +29,7 @@
     "react-native-paper": "*",
     "react-redux": "*",
     "redux-mock-store": "*",
-    "jest-fetch-mock": "*"
+    "jest-fetch-mock": "*",
+    "react-native-vector-icons": "*"
   }
 }
