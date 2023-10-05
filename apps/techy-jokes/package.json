@@ -18,6 +18,17 @@
     "react-native-screens": "*",
     "react-native-svg-web": "*",
     "react-native-web": "*",
-    "@react-native-masked-view/masked-view": "*"
+    "@react-native-masked-view/masked-view": "*",
+    "@react-navigation/native": "*",
+    "@react-navigation/native-stack": "*",
+    "@tanstack/react-query": "*",
+    "@tanstack/react-query-devtools": "*",
+    "redux-persist": "*",
+    "@reduxjs/toolkit": "*",
+    "redux-logger": "*",
+    "react-native-paper": "*",
+    "react-redux": "*",
+    "redux-mock-store": "*",
+    "jest-fetch-mock": "*"
   }
 }

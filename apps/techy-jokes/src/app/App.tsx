@@ -12,11 +12,12 @@ import {
 } from '@nx-react-native-monorepo-jokes/states/joke';
 import { Loading } from '@nx-react-native-monorepo-jokes/ui';
 import { Provider as StoreProvider } from 'react-redux';
-import { IconButton } from 'react-native-paper';
+import { IconButton, PaperProvider } from 'react-native-paper';
 
 import Jokes from './jokes/jokes';
 import Bookmarks from './bookmarks/bookmarks';
 import { AppRoutes } from './app-routes';
+import { theme } from './theme';
 
 const App = () => {
   const persistConfig = {
@@ -29,31 +30,36 @@ const App = () => {
   const Stack = createNativeStackNavigator();
   const queryClient = new QueryClient();
   return (
-    <PersistGate loading={<Loading />} persistor={persistor}>
-      <StoreProvider store={store}>
-        <QueryClientProvider client={queryClient}>
-          {Platform.OS === 'web' && <ReactQueryDevtools />}
-          <NavigationContainer>
-            <Stack.Navigator>
-              <Stack.Screen
-                name={AppRoutes.jokes}
-                component={Jokes}
-                options={({ navigation }) => ({
-                  headerRight: () => (
-                    <IconButton
-                      testID="bookmarks-button"
-                      icon="lightbulb-multiple"
-                      onPress={() => navigation.navigate(AppRoutes.bookmarks)}
-                    />
-                  ),
-                })}
-              />
-              <Stack.Screen name={AppRoutes.bookmarks} component={Bookmarks} />
-            </Stack.Navigator>
-          </NavigationContainer>
-        </QueryClientProvider>
-      </StoreProvider>
-    </PersistGate>
+    <PaperProvider theme={theme}>
+      <PersistGate loading={<Loading />} persistor={persistor}>
+        <StoreProvider store={store}>
+          <QueryClientProvider client={queryClient}>
+            {Platform.OS === 'web' && <ReactQueryDevtools />}
+            <NavigationContainer>
+              <Stack.Navigator>
+                <Stack.Screen
+                  name={AppRoutes.jokes}
+                  component={Jokes}
+                  options={({ navigation }) => ({
+                    headerRight: () => (
+                      <IconButton
+                        testID="bookmarks-button"
+                        icon="lightbulb-multiple"
+                        onPress={() => navigation.navigate(AppRoutes.bookmarks)}
+                      />
+                    ),
+                  })}
+                />
+                <Stack.Screen
+                  name={AppRoutes.bookmarks}
+                  component={Bookmarks}
+                />
+              </Stack.Navigator>
+            </NavigationContainer>
+          </QueryClientProvider>
+        </StoreProvider>
+      </PersistGate>
+    </PaperProvider>
   );
 };
 

@@ -7,13 +7,13 @@ import {
 
 export const LIKES_FEATURE_KEY = 'likes';
 
-export interface LikesEntity {
-  id: number;
+export interface LikesEntity<ID_TYPE = number> {
+  id: ID_TYPE;
   lines: string[];
   dateAdded: number;
 }
 
-export type LikesState = EntityState<LikesEntity>;
+export type LikesState<ID_TYPE = number> = EntityState<LikesEntity<ID_TYPE>>;
 
 export const likesAdapter = createEntityAdapter<LikesEntity>({
   selectId: (likes) => likes.id,

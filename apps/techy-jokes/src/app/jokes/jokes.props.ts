@@ -9,7 +9,7 @@ import {
 } from '@nx-react-native-monorepo-jokes/states/joke';
 import { AnyAction, ThunkDispatch } from '@reduxjs/toolkit';
 
-const mapStateToProps = (state: RootState) => {
+const mapStateToProps = (state: RootState<number>) => {
   return {
     getJokeById: (id: number) => likesSelectors.getLikeById(id)(state),
     getLastViewedJoke: viewJokesSelectors.getLastViewedJoke(state),
@@ -17,7 +17,7 @@ const mapStateToProps = (state: RootState) => {
 };
 
 const mapDispatchToProps = (
-  dispatch: ThunkDispatch<RootState, void, AnyAction>
+  dispatch: ThunkDispatch<RootState<number>, void, AnyAction>
 ) => {
   return {
     like(data: { lines: string[]; id?: number }) {
@@ -26,7 +26,7 @@ const mapDispatchToProps = (
           id: data.id ?? new Date().getTime(),
           lines: data.lines,
           dateAdded: Date.now(),
-        } as LikesEntity)
+        } as LikesEntity<number>)
       );
     },
     viewed(data: { lines: string[]; id?: number }) {
@@ -34,7 +34,7 @@ const mapDispatchToProps = (
         viewedJokesActions.add({
           id: data.id ?? new Date().getTime(),
           lines: data.lines,
-        } as ViewedJokesEntity)
+        } as ViewedJokesEntity<number>)
       );
     },
     removeFromViewed(id: number) {

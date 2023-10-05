@@ -34,13 +34,13 @@ export function Bookmarks({ bookmarks, removeBookmark }: BookmarksProps) {
   }, [navigation, edit]);
 
   return (
-    <ListPage
+    <ListPage<number>
       testID="bookmarks-page"
       items={bookmarks}
       editMode={edit}
       onRemove={removeBookmark}
-      onGoToDetails={(id: string) => {
-        navigation.push(AppRoutes.catFacts, { id });
+      onGoToDetails={(id: number) => {
+        navigation.push(AppRoutes.jokes, { id });
       }}
     ></ListPage>
   );
