@@ -1,4 +1,4 @@
-# How to setup web app with react-native-web?
+# How to set up a web app with react-native-web and vite?
 
 ## Installation
 First, I need to install `react-native-web`:
@@ -20,7 +20,7 @@ Run command:
 ```
 npx nx g @nx/react:app <web app name>
 ```
-In terminal output, select vite as bundler:
+In the terminal output, select vite as bundler:
 ```
 >  NX  Generating @nx/react:application
 
