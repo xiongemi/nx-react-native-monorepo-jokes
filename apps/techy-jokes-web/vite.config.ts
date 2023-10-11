@@ -5,6 +5,7 @@ import * as esbuild from 'esbuild';
 import { readFileSync } from 'fs';
 
 const extensions = [
+  '.mjs',
   '.web.tsx',
   '.tsx',
   '.web.ts',
@@ -20,10 +21,7 @@ const extensions = [
 const rollupPlugin = (matchers: RegExp[]) => ({
   name: 'js-in-jsx',
   load(id: string) {
-    if (
-      matchers.some((matcher) => matcher.test(id)) &&
-      id.endsWith('.js')
-    ) {
+    if (matchers.some((matcher) => matcher.test(id)) && id.endsWith('.js')) {
       const file = readFileSync(id, { encoding: 'utf-8' });
       return esbuild.transformSync(file, { loader: 'jsx', jsx: 'automatic' });
     }
@@ -32,12 +30,14 @@ const rollupPlugin = (matchers: RegExp[]) => ({
 
 export default defineConfig({
   cacheDir: '../../node_modules/.vite/techy-jokes-web',
+  define: {
+    global: 'window',
+  },
 
   resolve: {
-    extensions: extensions,
+    extensions,
     alias: {
       'react-native': 'react-native-web',
-      'react-native-svg': 'react-native-svg-web',
     },
   },
 
@@ -58,20 +58,14 @@ export default defineConfig({
   },
 
   optimizeDeps: {
-    exclude: ['react-native-vector-icons', 'react-native-safe-area-context'],
+    esbuildOptions: {
+      resolveExtensions: extensions,
+      jsx: 'automatic',
+      loader: { '.js': 'jsx' },
+    },
   },
 
-  plugins: [
-    react({
-      babel: {
-        plugins: [
-          '@babel/plugin-proposal-export-namespace-from',
-          'react-native-reanimated/plugin',
-        ],
-      },
-    }),
-    nxViteTsPaths(),
-  ],
+  plugins: [react(), nxViteTsPaths()],
 
   // Uncomment this if you are using workers.
   // worker: {
