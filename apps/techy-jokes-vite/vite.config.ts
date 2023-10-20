@@ -29,7 +29,7 @@ const rollupPlugin = (matchers: RegExp[]) => ({
 });
 
 export default defineConfig({
-  cacheDir: '../../node_modules/.vite/techy-jokes-web',
+  cacheDir: '../../node_modules/.vite/techy-jokes-vite',
   define: {
     global: 'window',
   },

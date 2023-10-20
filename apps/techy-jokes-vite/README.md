@@ -45,7 +45,7 @@ Also, in web app's `project.json`, add `implicitDependencies`:
 
 ## Add Alias in vite.config.ts
 
-In apps/techy-jokes-web/vite.config.ts, add below alias:
+In apps/techy-jokes-vite/vite.config.ts, add below alias:
 
 ```
   resolve: {
@@ -206,7 +206,7 @@ const rollupPlugin = (matchers: RegExp[]) => ({
 });
 
 export default defineConfig({
-  cacheDir: '../../node_modules/.vite/techy-jokes-web',
+  cacheDir: '../../node_modules/.vite/techy-jokes-vite',
   define: {
     global: 'window',
   },

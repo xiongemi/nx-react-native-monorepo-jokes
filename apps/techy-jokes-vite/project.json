@@ -1,7 +1,7 @@
 {
-  "name": "techy-jokes-web",
+  "name": "techy-jokes-vite",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/techy-jokes-web/src",
+  "sourceRoot": "apps/techy-jokes-vite/src",
   "projectType": "application",
   "targets": {
     "build": {
@@ -9,7 +9,7 @@
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "outputPath": "dist/apps/techy-jokes-web"
+        "outputPath": "dist/apps/techy-jokes-vite"
       },
       "configurations": {
         "development": {
@@ -24,15 +24,15 @@
       "executor": "@nx/vite:dev-server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "techy-jokes-web:build"
+        "buildTarget": "techy-jokes-vite:build"
       },
       "configurations": {
         "development": {
-          "buildTarget": "techy-jokes-web:build:development",
+          "buildTarget": "techy-jokes-vite:build:development",
           "hmr": true
         },
         "production": {
-          "buildTarget": "techy-jokes-web:build:production",
+          "buildTarget": "techy-jokes-vite:build:production",
           "hmr": false
         }
       }
@@ -41,14 +41,14 @@
       "executor": "@nx/vite:preview-server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "techy-jokes-web:build"
+        "buildTarget": "techy-jokes-vite:build"
       },
       "configurations": {
         "development": {
-          "buildTarget": "techy-jokes-web:build:development"
+          "buildTarget": "techy-jokes-vite:build:development"
         },
         "production": {
-          "buildTarget": "techy-jokes-web:build:production"
+          "buildTarget": "techy-jokes-vite:build:production"
         }
       }
     },
@@ -57,14 +57,14 @@
       "outputs": ["{options.reportsDirectory}"],
       "options": {
         "passWithNoTests": true,
-        "reportsDirectory": "../../coverage/apps/techy-jokes-web"
+        "reportsDirectory": "../../coverage/apps/techy-jokes-vite"
       }
     },
     "lint": {
       "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["apps/techy-jokes-web/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": ["apps/techy-jokes-vite/**/*.{ts,tsx,js,jsx}"]
       }
     }
   },
