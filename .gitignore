@@ -109,3 +109,5 @@ yarn-error.log
 
 
 apps/techy-jokes-e2e/artifacts
+
+.nx/cache
