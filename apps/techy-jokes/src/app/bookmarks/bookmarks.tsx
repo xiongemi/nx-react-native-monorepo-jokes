@@ -35,6 +35,7 @@ export function Bookmarks({ bookmarks, removeBookmark }: BookmarksProps) {
 
   return (
     <ListPage<number>
+      title="Bookmarks"
       testID="bookmarks-page"
       items={bookmarks}
       editMode={edit}

@@ -25,7 +25,6 @@ export function Carousel({
     carouselCard: {
       height: '100%',
       padding: 16,
-      display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
       backgroundColor: theme.colors.secondaryContainer,
@@ -39,7 +38,7 @@ export function Carousel({
     },
   });
   return (
-    <Card mode="contained" testID="carousel-card" style={styles.carouselCard}>
+    <Card mode="elevated" testID="carousel-card" style={styles.carouselCard}>
       {isSuccess && (
         <>
           {imageUri && <Card.Cover source={{ uri: imageUri }} />}

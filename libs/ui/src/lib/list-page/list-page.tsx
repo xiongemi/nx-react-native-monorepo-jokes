@@ -1,7 +1,7 @@
 import React from 'react';
-import { Card, Text, Button } from 'react-native-paper';
+import { List, useTheme } from 'react-native-paper';
 import Spacing from '../spacing/spacing';
-import { ScrollView, StyleSheet, View } from 'react-native';
+import { ScrollView } from 'react-native';
 
 export interface ListItem<ID_TYPE> {
   id: ID_TYPE;
@@ -10,6 +10,7 @@ export interface ListItem<ID_TYPE> {
 }
 
 export interface ListPageProps<ID_TYPE = number> {
+  title: string;
   editMode: boolean;
   items: ListItem<ID_TYPE>[];
   onRemove: (id: ID_TYPE) => void;
@@ -18,55 +19,41 @@ export interface ListPageProps<ID_TYPE = number> {
 }
 
 export function ListPage<ID_TYPE = number>({
+  title,
   editMode,
   items,
   onRemove,
   onGoToDetails,
   testID,
 }: ListPageProps<ID_TYPE>) {
+  const theme = useTheme();
   return (
     <Spacing testID={testID}>
       <ScrollView>
-        <View style={styles.grid}>
+        <List.Section>
           {items.map((item) => (
-            <Card
+            <List.Item
               key={item.id as any}
-              style={styles.item}
-              onPress={() => onGoToDetails(item.id)}
-            >
-              <Card.Title title={item.title} />
-              <Card.Content>
-                <Text variant="bodyLarge">
-                  {item.description.slice(0, 80)}...
-                </Text>
-              </Card.Content>
-              {editMode && (
-                <Card.Actions>
-                  <Button onPress={() => onRemove(item.id)}>Delete</Button>
-                </Card.Actions>
-              )}
-            </Card>
+              title={item.title}
+              descriptionNumberOfLines={3}
+              description={item.description}
+              left={() =>
+                editMode && (
+                  <List.Icon color={theme.colors.error} icon="minus-circle" />
+                )
+              }
+              right={(props) =>
+                !editMode && <List.Icon {...props} icon="chevron-right" />
+              }
+              onPress={() =>
+                editMode ? onRemove(item.id) : onGoToDetails(item.id)
+              }
+            />
           ))}
-        </View>
+        </List.Section>
       </ScrollView>
     </Spacing>
   );
 }
-
-const styles = StyleSheet.create({
-  grid: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    padding: 4,
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    spaceBetween: 4,
-    height: '100%',
-  },
-  item: {
-    width: '48%',
-    margin: 2,
-  },
-});
 
 export default ListPage;
