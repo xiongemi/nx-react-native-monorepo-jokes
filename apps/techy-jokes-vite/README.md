@@ -57,6 +57,29 @@ In apps/techy-jokes-vite/vite.config.ts, add below alias:
 
 Then that is it, I can now view the web app using `npx nx serve <web app name>`.
 
+## Change index.html to be full height
+
+In the index.html, change the:
+- `style="height: 100%"` to html tag
+- `style="min-height: 100%"` to body tag
+- `style="display: flex; min-height: 100vh"` to div with root id
+
+These style changes are taken from examples in https://reactnavigation.org/docs/server-rendering.
+
+So the index.html would look like:
+```
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+  <head>
+    ...
+  </head>
+  <body style="min-height: 100%">
+    <div id="root" style="display: flex; min-height: 100vh"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+```
+
 ---
 
 ## Troubleshooting

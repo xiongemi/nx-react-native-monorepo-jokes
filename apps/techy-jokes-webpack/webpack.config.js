@@ -10,7 +10,8 @@ module.exports = composePlugins(withNx(), withReact(), (config) => {
     'react-native-safe-area-context',
   ];
   config.resolve.alias = {
-    'react-native': 'react-native-web',
+    'react-native$': 'react-native-web',
   };
+  config.resolve.extensions = ['.web.js', ...config.resolve.extensions];
   return config;
 });

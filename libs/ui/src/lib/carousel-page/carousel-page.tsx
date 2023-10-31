@@ -14,16 +14,14 @@ export interface CarouselPageProps extends CarouselActionsProps, CarouselProps {
 export function CarouselPage(props: CarouselPageProps) {
   return (
     <SafeAreaView testID={props.testID} style={styles.page}>
-      <View style={styles.carousel}>
-        <ScrollView
-          contentContainerStyle={styles.carouselScrollView}
-          testID="carousel-scroll-view"
-          centerContent={true}
-          contentInsetAdjustmentBehavior="automatic"
-        >
-          <Carousel {...props} />
-        </ScrollView>
-      </View>
+      <ScrollView
+        contentContainerStyle={styles.carouselScrollView}
+        testID="carousel-scroll-view"
+        centerContent={true}
+        contentInsetAdjustmentBehavior="automatic"
+      >
+        <Carousel {...props} />
+      </ScrollView>
       <View style={styles.carouselActions}>
         <CarouselActions {...props} />
       </View>
@@ -36,12 +34,8 @@ const styles = StyleSheet.create({
     display: 'flex',
     height: '100%',
   },
-  carousel: {
-    flexGrow: 1,
-    display: 'flex',
-  },
   carouselScrollView: {
-    height: '100%',
+    flex: 1,
     justifyContent: 'center',
     padding: 16,
     display: 'flex',
