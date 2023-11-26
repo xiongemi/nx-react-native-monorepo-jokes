@@ -179,7 +179,7 @@ Then add this plugin to the vite config:
     },
   },
 ```
-Now build command (`nx run <web app name>`) should work.
+Now build command (`nx build <web app name>`) should work.
 
 ### global is not defined
 
