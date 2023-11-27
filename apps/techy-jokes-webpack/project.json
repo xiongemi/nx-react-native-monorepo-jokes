@@ -47,6 +47,10 @@
         }
       }
     },
+    "gh-pages": {
+      "command": "nx build techy-jokes-webpack --baseHref=/nx-react-native-monorepo-jokes && node gh-pages.js",
+      "cwd": "{projectRoot}"
+    },
     "serve": {
       "executor": "@nx/webpack:dev-server",
       "defaultConfiguration": "development",

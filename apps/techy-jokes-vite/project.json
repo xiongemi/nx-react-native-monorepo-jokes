@@ -20,6 +20,10 @@
         }
       }
     },
+    "gh-pages": {
+      "command": "nx build techy-jokes-vite --base=/nx-react-native-monorepo-jokes/ && node gh-pages.js",
+      "cwd": "{projectRoot}"
+    },
     "serve": {
       "executor": "@nx/vite:dev-server",
       "defaultConfiguration": "development",

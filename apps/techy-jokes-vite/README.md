@@ -1,4 +1,10 @@
-# How to set up a web app with react-native-web and vite?
+# Using react-native-web with Vite in a Nx monorepo
+
+This blog shows how to add a web app using react-native-web with vite as the bundler in a Nx monorepo.
+
+Github Repo: https://github.com/xiongemi/nx-react-native-monorepo-jokes
+
+---
 
 ## Installation
 First, I need to install `react-native-web`:
@@ -85,7 +91,7 @@ So the index.html would look like:
 ## Troubleshooting
 
 ### react-native-vector-icons
-Because I use react-native-vector-icons, I got this error:
+Because I use [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons/), I got this error:
 ```
 [commonjs--resolver] Unexpected token (70:8) in /Users/emily/code/tmp/nx-react-native-monorepo-jokes/node_modules/react-native-vector-icons/lib/create-icon-set.js
 file: /Users/emily/code/tmp/nx-react-native-monorepo-jokes/node_modules/react-native-vector-icons/lib/create-icon-set.js:70:8
@@ -100,7 +106,7 @@ file: /Users/emily/code/tmp/nx-react-native-monorepo-jokes/node_modules/react-na
 ```
 This happens because `react-native-vector-icons` contains jsx code (e.g. `<Text>`) inside `.js` file.
 
-First, I need to add files with `.web` to the extensions (the order of the extension in the array actually matters):
+First, I need to add files with `.web` to the extensions (the order of the extension in the array actually matters, `.web` needs to be loaded first):
 
 ```
 const extensions = [
@@ -143,7 +149,9 @@ When I serve up the web app, I will get this error message:
 ```
 MaterialCommunityIcon.tsx:49 Error: Dynamic require of "react-native-vector-icons/MaterialCommunityIcons" is not supported
 ```
-So my web app's index.html, I need to add:
+
+I copy the font file from react-native-vector-icons library to the public folder: https://github.com/oblador/react-native-vector-icons/tree/master/Fonts.
+So in my web app's index.html, I need to add:
 ```
     <style type="text/css">
       @font-face {
@@ -280,3 +288,63 @@ export default defineConfig({
   },
 });
 ```
+
+---
+## Deploy to GitHub Pages
+
+[GitHub Pages](https://pages.github.com/) is designed to host your personal, organization, or project pages from a GitHub repository.
+
+To deploy this web app to GitHub Pages:
+1. install [`gh-pages`](https://github.com/tschaub/gh-pages):
+```
+# npm
+npm install gh-pages --save-dev
+
+# yarn
+yarn add gh-pages --dev
+
+# pnpm
+pnpm add gh-pages --save-dev
+```
+
+2. Create a script called `gh-pages.js` under the app:
+```
+var ghpages = require('gh-pages');
+
+ghpages.publish('<relative path to app build output path>', function (err) {
+  if (!err) {
+    console.error(err);
+  }
+});
+```
+
+For this example, the `gh-pages.js` look like:
+```
+var ghpages = require('gh-pages');
+
+ghpages.publish('../../dist/apps/techy-jokes-vite', function (err) {
+  if (!err) {
+    console.error(err);
+  }
+});
+```
+
+3. if your GitHub has a base href, run the build command with `--base`. For example, my GitHub page is at https://xiongemi.github.io/nx-react-native-monorepo-jokes/, to build for it, the command is `nx build techy-jokes-vite --base=/nx-react-native-monorepo-jokes/`.
+
+4. Add a target in project.json:
+
+```
+    "gh-pages": {
+      "command": "nx build techy-jokes-vite --base=/nx-react-native-monorepo-jokes/ && node gh-pages.js",
+      "cwd": "{projectRoot}"
+    },
+```
+
+Now you can run the command `nx gh-pages <your app name>` to deploy your app to GitHub Pages.
+
+---
+## Nx Graph
+
+If you run command `nx graph`, you should see the web app implict depends on the react native mobile app:
+
+![nx dependency graph](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/zal9dcj1ag55ta6734hh.png)
