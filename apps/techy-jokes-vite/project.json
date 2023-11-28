@@ -21,7 +21,7 @@
       }
     },
     "gh-pages": {
-      "command": "nx build techy-jokes-vite --base=/nx-react-native-monorepo-jokes/ && node gh-pages.js",
+      "command": "npx nx build techy-jokes-vite --base=/nx-react-native-monorepo-jokes/ --prod && node gh-pages.js",
       "cwd": "{projectRoot}"
     },
     "serve": {

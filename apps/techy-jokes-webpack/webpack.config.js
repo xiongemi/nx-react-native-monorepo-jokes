@@ -6,6 +6,7 @@ module.exports = composePlugins(withNx(), withReact(), (config) => {
   // Update the webpack config as needed here.
   // e.g. `config.plugins.push(new MyPlugin())`
   config.resolve.alias = {
+    ...config.resolve?.alias ?? {},
     'react-native$': 'react-native-web',
   };
   config.resolve.extensions = [

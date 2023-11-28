@@ -1,6 +1,6 @@
 # Using react-native-web with Vite in a Nx monorepo
 
-This blog shows how to add a web app using react-native-web with vite as the bundler in a Nx monorepo.
+This blog shows how to add a web app using [react-native-web](https://necolas.github.io/react-native-web/) with vite as the bundler in a Nx monorepo.
 
 Github Repo: https://github.com/xiongemi/nx-react-native-monorepo-jokes
 
@@ -332,10 +332,17 @@ ghpages.publish('../../dist/apps/techy-jokes-vite', function (err) {
 3. if your GitHub has a base href, run the build command with `--base`. For example, my GitHub page is at https://xiongemi.github.io/nx-react-native-monorepo-jokes/, to build for it, the command is `nx build techy-jokes-vite --base=/nx-react-native-monorepo-jokes/`.
 
 4. Add a target in project.json:
-
 ```
     "gh-pages": {
-      "command": "nx build techy-jokes-vite --base=/nx-react-native-monorepo-jokes/ && node gh-pages.js",
+      "command": "npx nx build <app name> --base=<app base href> --prod && node gh-pages.js",
+      "cwd": "{projectRoot}"
+    },
+```
+
+For this example, the target would be:
+```
+    "gh-pages": {
+      "command": "npx nx build techy-jokes-vite --base=/nx-react-native-monorepo-jokes/ --prod && node gh-pages.js",
       "cwd": "{projectRoot}"
     },
 ```

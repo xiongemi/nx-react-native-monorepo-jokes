@@ -48,7 +48,7 @@
       }
     },
     "gh-pages": {
-      "command": "nx build techy-jokes-webpack --baseHref=/nx-react-native-monorepo-jokes && node gh-pages.js",
+      "command": "npx nx build techy-jokes-webpack --baseHref=/nx-react-native-monorepo-jokes --prod && node gh-pages.js",
       "cwd": "{projectRoot}"
     },
     "serve": {
@@ -79,14 +79,7 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "apps/techy-jokes-webpack/jest.config.ts",
-        "passWithNoTests": true
-      },
-      "configurations": {
-        "ci": {
-          "ci": true,
-          "codeCoverage": true
-        }
+        "jestConfig": "apps/techy-jokes-webpack/jest.config.ts"
       }
     }
   },

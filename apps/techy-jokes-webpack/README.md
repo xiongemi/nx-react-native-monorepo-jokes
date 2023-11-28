@@ -1,6 +1,6 @@
 # Using react-native-web with Webpack in a Nx monorepo
 
-This blog shows how to add a web app using react-native-web with Webpack as the bundler in a Nx monorepo.
+This blog shows how to add a web app using [react-native-web](https://necolas.github.io/react-native-web/) with Webpack as the bundler in a Nx monorepo.
 
 Github Repo: https://github.com/xiongemi/nx-react-native-monorepo-jokes
 
@@ -53,6 +53,7 @@ In apps/techy-jokes-webpack/webpack.config.ts, add below alias:
 
 ```
   config.resolve.alias = {
+    ...config.resolve?.alias ?? {},
     'react-native$': 'react-native-web',
   };
 ```
@@ -161,6 +162,7 @@ module.exports = composePlugins(withNx(), withReact(), (config) => {
   // Update the webpack config as needed here.
   // e.g. `config.plugins.push(new MyPlugin())`
   config.resolve.alias = {
+    ...config.resolve?.alias ?? {},
     'react-native$': 'react-native-web',
   };
   config.resolve.extensions = [
@@ -192,7 +194,7 @@ module.exports = composePlugins(withNx(), withReact(), (config) => {
 [GitHub Pages](https://pages.github.com/) is designed to host your personal, organization, or project pages from a GitHub repository.
 
 To deploy this web app to GitHub page:
-1. install [`gh-pages`](https://github.com/tschaub/gh-pages)
+- Install [`gh-pages`](https://github.com/tschaub/gh-pages)
 ```
 # npm
 npm install gh-pages --save-dev
@@ -204,7 +206,7 @@ yarn add gh-pages --dev
 pnpm add gh-pages --save-dev
 ```
 
-2. Create a script called `gh-pages.js` under the app:
+- Create a script called `gh-pages.js` under the app:
 ```
 var ghpages = require('gh-pages');
 
@@ -226,13 +228,20 @@ ghpages.publish('../../dist/apps/techy-jokes-webpack', function (err) {
 });
 ```
 
-4. if your GitHub has a base href, run the build command with `--baseHref`. For example, my GitHub page is at https://xiongemi.github.io/nx-react-native-monorepo-jokes/, to build for it, the command is `nx build techy-jokes-webpack --baseHref=/nx-react-native-monorepo-jokes/`.
+- If your GitHub has a base href, run the build command with `--baseHref`. For example, my GitHub page is at https://xiongemi.github.io/nx-react-native-monorepo-jokes/, to build for it, the command is `nx build techy-jokes-webpack --baseHref=/nx-react-native-monorepo-jokes/`.
 
-5. Add a target in project.json:
-
+- Add a target in project.json:
 ```
     "gh-pages": {
-      "command": "nx build techy-jokes-webpack --baseHref=/nx-react-native-monorepo-jokes && node gh-pages.js",
+      "command": "npx nx build <app name> --base=<app base href> --prod && node gh-pages.js",
+      "cwd": "{projectRoot}"
+    },
+```
+
+For this example, the target would be:
+```
+    "gh-pages": {
+      "command": "npx nx build techy-jokes-webpack --prod --baseHref=/nx-react-native-monorepo-jokes && node gh-pages.js",
       "cwd": "{projectRoot}"
     },
 ```
