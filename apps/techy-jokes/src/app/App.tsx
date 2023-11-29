@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
@@ -14,10 +14,11 @@ import { Loading } from '@nx-react-native-monorepo-jokes/ui';
 import { Provider as StoreProvider } from 'react-redux';
 import { IconButton, PaperProvider } from 'react-native-paper';
 
-import Jokes from './jokes/jokes';
-import Bookmarks from './bookmarks/bookmarks';
 import { AppRoutes } from './app-routes';
 import { theme } from './theme';
+
+const Jokes = lazy(() => import('./jokes/jokes'));
+const Bookmarks = lazy(() => import('./bookmarks/bookmarks'));
 
 const App = () => {
   const persistConfig = {
@@ -39,7 +40,11 @@ const App = () => {
               <Stack.Navigator>
                 <Stack.Screen
                   name={AppRoutes.jokes}
-                  component={Jokes}
+                  component={(props: any) => {
+                    return <Suspense fallback={<Loading />}>
+                      <Jokes {...props} />
+                    </Suspense>;
+                  }}
                   options={({ navigation }) => ({
                     headerRight: () => (
                       <IconButton
@@ -52,7 +57,11 @@ const App = () => {
                 />
                 <Stack.Screen
                   name={AppRoutes.bookmarks}
-                  component={Bookmarks}
+                  component={(props: any) => {
+                    return <Suspense fallback={<Loading />}>
+                      <Bookmarks {...props} />
+                    </Suspense>;
+                  }}
                 />
               </Stack.Navigator>
             </NavigationContainer>
