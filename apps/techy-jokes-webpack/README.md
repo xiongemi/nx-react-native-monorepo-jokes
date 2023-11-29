@@ -62,10 +62,10 @@ In apps/techy-jokes-webpack/webpack.config.ts, add below alias:
 
 In the index.html, change the:
 - `style="height: 100%"` to html tag
-- `style="min-height: 100%"` to body tag
-- `style="display: flex; min-height: 100vh"` to div with root id
+- `style="height:100%"` to body tag
+- `style="display: flex; height:100%"` to div with root id
 
-These style changes are taken from examples in https://reactnavigation.org/docs/server-rendering.
+These style changes are taken from https://necolas.github.io/react-native-web/docs/rendering/#client-api.
 
 So the index.html would look like:
 ```
@@ -74,17 +74,11 @@ So the index.html would look like:
   <head>
     ...
   </head>
-  <body style="min-height: 100%">
-    <div id="root" style="display: flex; min-height: 100vh"></div>
-    <script type="module" src="/src/main.tsx"></script>
+  <body style="height: 100%">
+    <div id="root" style="display: flex; height: 100%"></div>
   </body>
 </html>
 ```
-
-Then that is it, I can now view the web app using `npx nx serve <web app name>`.
-
----
-
 ## Troubleshooting
 
 ### react-native-vector-icons
@@ -186,6 +180,30 @@ module.exports = composePlugins(withNx(), withReact(), (config) => {
   return config;
 });
 
+```
+
+The final `index.html` would look like:
+```
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+  <head>
+    <meta charset="utf-8" />
+    <title>Techy Jokes Webpack</title>
+    <base href="/" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <style type="text/css">
+      @font-face {
+        font-family: 'MaterialCommunityIcons';
+        src: url('/assets/MaterialCommunityIcons.ttf') format('truetype');
+      }
+    </style>
+  </head>
+  <body style="height: 100%">
+    <div id="root" style="display: flex; height: 100vh"></div>
+  </body>
+</html>
 ```
 
 ---
