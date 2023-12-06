@@ -6,12 +6,16 @@
 
 ## Apps
 - techy-jokes: react native mobile app
+    - `nx start techy-jokes`: start the native app
 - techy-jokes-vite: react web app with react-native-web and vite bundler
     - `nx serve techy-jokes-vite`: serve the web app
     - `nx gh-pages techy-jokes-vite`: deploy the web app to GitHub pages
 - techy-jokes-webpack: react web app with react-native-web and webpack bundler
     - `nx serve techy-jokes-webpack`: serve the web app
-     - `nx gh-pages techy-jokes-webpack`: deploy the web app to GitHub pages
+    - `nx gh-pages techy-jokes-webpack`: deploy the web app to GitHub pages
+- techy-jokes-web: react web app with ReactJs and vite
+    - `nx serve techy-jokes-web`: serve the web app
+
 
 
 ## Start the app
