@@ -25,7 +25,11 @@
       "@nx-react-native-monorepo-jokes/states/joke": [
         "libs/states/joke/src/index.ts"
       ],
-      "@nx-react-native-monorepo-jokes/ui": ["libs/ui/src/index.ts"]
+      "@nx-react-native-monorepo-jokes/ui": ["libs/ui/src/index.ts"],
+      "@nx-react-native-monorepo-jokes/web-ui": ["libs/web-ui/src/index.ts"],
+      "@nx-react-native-monorepo-jokes/web-ui/server": [
+        "libs/web-ui/src/server.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

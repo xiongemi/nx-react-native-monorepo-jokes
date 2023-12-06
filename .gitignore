@@ -111,3 +111,6 @@ yarn-error.log
 apps/techy-jokes-e2e/artifacts
 
 .nx/cache
+
+# Next.js
+.next

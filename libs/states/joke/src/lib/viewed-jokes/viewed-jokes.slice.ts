@@ -44,8 +44,8 @@ const getViewedJokesState = (rootState: {
 const getViewedJokes = createSelector(getViewedJokesState, selectAll);
 
 const getLastViewedJoke = createSelector(getViewedJokes, (viewedJokes) => {
-  if (viewedJokes.length > 2) {
-    return viewedJokes[viewedJokes.length - 2];
+  if (viewedJokes.length >= 1) {
+    return viewedJokes[viewedJokes.length - 1];
   }
   return undefined;
 });

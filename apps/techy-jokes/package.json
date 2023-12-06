@@ -30,6 +30,9 @@
     "react-redux": "*",
     "redux-mock-store": "*",
     "jest-fetch-mock": "*",
-    "react-native-vector-icons": "*"
+    "react-native-vector-icons": "*",
+    "@storybook/react": "*",
+    "@storybook/testing-library": "*",
+    "@storybook/jest": "*"
   }
 }

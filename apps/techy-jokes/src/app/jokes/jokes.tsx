@@ -33,26 +33,19 @@ export function Jokes({
             queryResult.data.delivery,
           ].filter(Boolean) as string[]
         );
-        viewed({
-          id: queryResult.data.id,
-          lines: [
-            queryResult.data.joke,
-            queryResult.data.setup,
-            queryResult.data.delivery,
-          ].filter(Boolean) as string[],
-        });
       }
       setIsLoading(queryResult.isLoading || queryResult.isFetching);
       setIsSuccess(queryResult.isSuccess);
       setIsError(queryResult.isError);
     });
-  }, [refetch, viewed]);
+  }, [refetch]);
 
   const onLikePress = useCallback(() => {
     if (!joke) return;
     like({ lines: joke, id: id.current });
+    viewed({ lines: joke, id: id.current });
     onFetchJoke();
-  }, [joke, like, onFetchJoke]);
+  }, [joke, like, onFetchJoke, viewed]);
 
   const onBackPress = useCallback(() => {
     if (!getLastViewedJoke?.lines) return;
@@ -60,12 +53,22 @@ export function Jokes({
     removeFromViewed(getLastViewedJoke?.id);
   }, [removeFromViewed, getLastViewedJoke]);
 
+  const onNextPress = useCallback(() => {
+    if (!joke) {
+      return;
+    }
+    viewed({
+      lines: joke,
+      id: id.current,
+    });
+    onFetchJoke();
+  }, [onFetchJoke, viewed, joke]);
+
   useEffect(() => {
-    if (id.current && getJokeById && viewed) {
+    if (id.current && getJokeById) {
       const lines = getJokeById(id.current)?.lines;
       if (lines && lines.length) {
         setJoke(lines);
-        viewed({ id: id.current, lines: lines });
         id.current = undefined;
         setIsLoading(false);
         setIsSuccess(true);
@@ -93,7 +96,7 @@ export function Jokes({
           icon="arrow-left"
           containerColor={theme.colors.primaryContainer}
           iconColor={theme.colors.primary}
-          disabled={!getLastViewedJoke?.id}
+          disabled={getLastViewedJoke?.id === undefined}
           onPress={onBackPress}
           isLoading={isLoading}
           isSuccess={isSuccess}
@@ -114,7 +117,7 @@ export function Jokes({
           icon="close"
           containerColor={theme.colors.tertiaryContainer}
           iconColor={theme.colors.tertiary}
-          onPress={onFetchJoke}
+          onPress={onNextPress}
           isLoading={isLoading}
           isSuccess={isSuccess}
           isError={isError}

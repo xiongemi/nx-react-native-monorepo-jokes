@@ -20,7 +20,7 @@ import { theme } from './theme';
 const Jokes = lazy(() => import('./jokes/jokes'));
 const Bookmarks = lazy(() => import('./bookmarks/bookmarks'));
 
-const App = () => {
+export const App = () => {
   const persistConfig = {
     key: 'root',
     storage: AsyncStorage,

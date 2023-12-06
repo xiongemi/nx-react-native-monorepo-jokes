@@ -49,7 +49,11 @@ const selectAllLikes = createSelector(getlikesState, selectAll);
 const getLikeById = (id: number) =>
   createSelector(getlikesState, (state) => selectById(state, id));
 
+const isLiked = (id: number) =>
+  createSelector(getLikeById(id), (entity): boolean => !!entity);
+
 export const likesSelectors = {
   selectAllLikes,
-  getLikeById
+  getLikeById,
+  isLiked
 };

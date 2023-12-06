@@ -1,5 +1,10 @@
-export interface TechJokeResponse {
+export interface TechJokeResponse extends SingleJokeResponse{
   error: boolean;
+  amount?: number;
+  jokes?: SingleJokeResponse[];
+}
+
+export interface SingleJokeResponse {
   category: string;
   type: 'twopart' | 'single';
   setup?: string;
