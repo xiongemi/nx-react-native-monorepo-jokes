@@ -5,11 +5,11 @@ import TestWrapper from './test-wrapper';
 
 describe('TestWrapper', () => {
   it('should render successfully', () => {
-    const { container } = render(
+    const { root } = render(
       <TestWrapper>
         <>test</>
       </TestWrapper>
     );
-    expect(container).toBeTruthy();
+    expect(root).toBeTruthy();
   });
 });
