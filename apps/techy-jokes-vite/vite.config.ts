@@ -43,6 +43,8 @@ export default defineConfig({
   },
 
   build: {
+    reportCompressedSize: true,
+    commonjsOptions: { transformMixedEsModules: true },
     outDir: '../../dist/apps/techy-jokes-vite',
     rollupOptions: {
       plugins: [rollupPlugin([/react-native-vector-icons/])],
@@ -79,6 +81,7 @@ export default defineConfig({
   // },
 
   test: {
+    reporters: ['default'],
     coverage: {
       reportsDirectory: '../../coverage/apps/techy-jokes-vite',
       provider: 'v8',
