@@ -33,6 +33,9 @@
     "react-native-vector-icons": "*",
     "@storybook/react": "*",
     "@storybook/testing-library": "*",
-    "@storybook/jest": "*"
+    "@storybook/jest": "*",
+    "react-dom": "*",
+    "@nx/webpack": "*",
+    "@nx/react": "*"
   }
 }

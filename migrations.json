@@ -1,18 +1,83 @@
 {
   "migrations": [
     {
-      "version": "17.2.0-beta.10",
-      "description": "Update vite config.",
-      "implementation": "./src/migrations/update-17-2-0/update-vite-config",
-      "package": "@nx/vite",
-      "name": "update-vite-config"
+      "cli": "nx",
+      "version": "17.3.0-beta.6",
+      "description": "Updates the nx wrapper.",
+      "implementation": "./src/migrations/update-17-3-0/update-nxw",
+      "package": "nx",
+      "name": "17.3.0-update-nx-wrapper"
     },
     {
-      "version": "17.2.0-beta.0",
-      "description": "Simplify eslintFilePatterns",
-      "implementation": "./src/migrations/update-17-2-0/simplify-eslint-patterns",
+      "version": "17.2.9",
+      "description": "Move executor options to target defaults",
+      "implementation": "./src/migrations/update-17-2-9/move-options-to-target-defaults",
+      "package": "@nx/eslint",
+      "name": "move-options-to-target-defaults"
+    },
+    {
+      "cli": "nx",
+      "version": "17.2.1-beta.0",
+      "description": "Add webpack.config.js file when webpackConfig is not defined",
+      "implementation": "./src/migrations/update-17-2-1/webpack-config-setup",
+      "package": "@nx/webpack",
+      "name": "update-17-2-1-webpack-config-setup"
+    },
+    {
+      "cli": "nx",
+      "version": "18.0.0-beta.0",
+      "description": "Add web configuration to react native projects",
+      "implementation": "./src/migrations/update-18-0-0/add-web-configuration",
+      "package": "@nx/react-native",
+      "name": "update-18-0-0-add-web-configuration"
+    },
+    {
+      "cli": "nx",
+      "version": "18.0.0-beta.0",
+      "description": "Upgrade react native storybook target to use web",
+      "implementation": "./src/migrations/update-18-0-0/change-storybook-targets",
+      "package": "@nx/react-native",
+      "name": "update-18-0-0-change-storybook-targets"
+    },
+    {
+      "cli": "nx",
+      "version": "18.0.0-beta.0",
+      "description": "Remove blockList in metro.config.js.",
+      "implementation": "./src/migrations/update-18-0-0/remove-block-list",
+      "package": "@nx/react-native",
+      "name": "update-18-0-0-remove-block-list"
+    },
+    {
+      "cli": "nx",
+      "version": "18.0.0-beta.0",
+      "description": "Remove metro-* and @react-native-community/cli-* from package.json devDependencies",
+      "implementation": "./src/migrations/update-18-0-0/remove-metro",
+      "package": "@nx/react-native",
+      "name": "update-18-0-0-remove-metro"
+    },
+    {
+      "cli": "nx",
+      "version": "18.0.0-beta.0",
+      "description": "Remove ensure-symlink target",
+      "implementation": "./src/migrations/update-18-0-0/remove-symlink-target",
+      "package": "@nx/react-native",
+      "name": "update-18-0-0-remove-symlink-target"
+    },
+    {
+      "cli": "nx",
+      "version": "18.0.0-beta.0",
+      "description": "Add upgrade target to react native projects",
+      "implementation": "./src/migrations/update-18-0-0/add-upgrade-target",
+      "package": "@nx/react-native",
+      "name": "update-18-0-0-add-upgrade-target"
+    },
+
+    {
+      "version": "17.2.9",
+      "description": "Move executor options to target defaults",
+      "implementation": "./src/migrations/update-17-2-9/move-options-to-target-defaults",
       "package": "@nx/linter",
-      "name": "simplify-eslint-patterns"
+      "name": "move-options-to-target-defaults"
     }
   ]
 }
