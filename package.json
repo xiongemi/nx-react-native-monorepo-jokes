@@ -25,14 +25,13 @@
     "@mui/icons-material": "^5.14.19",
     "@mui/material": "^5.14.19",
     "@nx/cypress": "18.0.4",
-    "@nx/detox": "18.0.4",
     "@nx/eslint": "18.0.4",
     "@nx/eslint-plugin": "18.0.4",
     "@nx/jest": "18.0.4",
     "@nx/js": "18.0.4",
     "@nx/linter": "18.0.4",
     "@nx/react": "18.0.4",
-    "@nx/react-native": "^19.0.0",
+    "@nx/react-native": "18.0.4",
     "@nx/rollup": "18.0.4",
     "@nx/storybook": "18.0.4",
     "@nx/vite": "18.0.4",
@@ -81,7 +80,6 @@
     "autoprefixer": "^10.4.13",
     "babel-jest": "^29.4.1",
     "cypress": "^13.0.0",
-    "detox": "20.17.0",
     "eslint": "8.48.0",
     "eslint-config-prettier": "9.0.0",
     "eslint-plugin-cypress": "^2.13.4",
@@ -123,3 +121,4 @@
     "vitest": "1.2.2"
   }
 }
+

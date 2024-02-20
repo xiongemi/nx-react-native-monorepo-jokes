@@ -1,11 +1,11 @@
 /* eslint-disable */
 export default {
-  displayName: 'techy-jokes-webpack',
+  displayName: 'techy-jokes-reactpack',
   preset: '../../jest.preset.js',
   transform: {
     '^(?!.*\\.(js|jsx|ts|tsx|css|json)$)': '@nx/react/plugins/jest',
     '^.+\\.[tj]sx?$': ['babel-jest', { presets: ['@nx/react/babel'] }],
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  coverageDirectory: '../../coverage/apps/techy-jokes-webpack',
+  coverageDirectory: '../../coverage/apps/techy-jokes-reactpack',
 };

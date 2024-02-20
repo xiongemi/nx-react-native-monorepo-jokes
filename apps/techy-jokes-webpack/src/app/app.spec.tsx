@@ -10,6 +10,6 @@ describe('App', () => {
 
   it('should have a greeting as the title', () => {
     const { getByText } = render(<App />);
-    expect(getByText(/Welcome techy-jokes-webpack/gi)).toBeTruthy();
+    expect(getByText(/Welcome techy-jokes-reactpack/gi)).toBeTruthy();
   });
 });
