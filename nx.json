@@ -79,5 +79,6 @@
   "tasksRunnerOptions": {
     "default": { "options": { "cacheableOperations": ["build-storybook"] } }
   },
-  "nxCloudAccessToken": "ZDdhZGMyNGUtODEyOC00YzRlLTkzY2QtYjFmZDNjM2U2ZjUwfHJlYWQtd3JpdGU="
+  "nxCloudAccessToken": "MDc0YmVlOTctNWVhMC00MzgyLThjMWUtOGQxYWE5Njg0M2Q0fHJlYWQtd3JpdGU=",
+  "nxCloudUrl": "https://staging.nx.app"
 }
