@@ -1,8 +1,6 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
-  "workspaceLayout": {
-    "projectNameAndRootFormat": "as-provided"
-  },
+  "workspaceLayout": { "projectNameAndRootFormat": "as-provided" },
   "targetDefaults": {
     "build": {
       "dependsOn": ["^build"],
@@ -21,15 +19,8 @@
     "@nx/jest:jest": {
       "inputs": ["default", "^production", "{workspaceRoot}/jest.preset.js"],
       "cache": true,
-      "options": {
-        "passWithNoTests": true
-      },
-      "configurations": {
-        "ci": {
-          "ci": true,
-          "codeCoverage": true
-        }
-      }
+      "options": { "passWithNoTests": true },
+      "configurations": { "ci": { "ci": true, "codeCoverage": true } }
     },
     "@nx/vite:test": {
       "inputs": ["default", "^production", "{workspaceRoot}/jest.preset.js"],
@@ -70,26 +61,13 @@
         "bundler": "vite",
         "babel": true
       },
-      "component": {
-        "style": "none"
-      },
-      "library": {
-        "style": "none",
-        "linter": "eslint"
-      }
+      "component": { "style": "none" },
+      "library": { "style": "none", "linter": "eslint" }
     },
-    "@nx/next": {
-      "application": {
-        "style": "css",
-        "linter": "eslint"
-      }
-    }
+    "@nx/next": { "application": { "style": "css", "linter": "eslint" } }
   },
   "tasksRunnerOptions": {
-    "default": {
-      "options": {
-        "cacheableOperations": ["build-storybook"]
-      }
-    }
-  }
+    "default": { "options": { "cacheableOperations": ["build-storybook"] } }
+  },
+  "nxCloudAccessToken": "ZDdhZGMyNGUtODEyOC00YzRlLTkzY2QtYjFmZDNjM2U2ZjUwfHJlYWQtd3JpdGU="
 }
