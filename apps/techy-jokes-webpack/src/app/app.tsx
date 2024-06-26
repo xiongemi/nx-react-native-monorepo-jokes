@@ -3,7 +3,7 @@ import NxWelcome from './nx-welcome';
 export function App() {
   return (
     <div>
-      <NxWelcome title="techy-jokes-webpack" />
+      <NxWelcome title="techy-jokes-reactpack" />
     </div>
   );
 }

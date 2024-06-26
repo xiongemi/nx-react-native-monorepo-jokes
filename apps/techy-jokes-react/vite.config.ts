@@ -4,6 +4,12 @@ import react from '@vitejs/plugin-react';
 import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
 
 export default defineConfig({
+  root: __dirname,
+  build: {
+    reportCompressedSize: true,
+    commonjsOptions: { transformMixedEsModules: true },
+    outDir: '../../dist/apps/techy-jokes-web',
+  },
   cacheDir: '../../node_modules/.vite/techy-jokes-web',
 
   server: {
@@ -25,6 +31,11 @@ export default defineConfig({
   // },
 
   test: {
+    reporters: ['default'],
+    coverage: {
+      reportsDirectory: '../../coverage/apps/techy-jokes-web',
+      provider: 'v8',
+    },
     globals: true,
     cache: {
       dir: '../../node_modules/.vitest',

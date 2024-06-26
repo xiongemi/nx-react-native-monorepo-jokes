@@ -1,7 +1,7 @@
 {
-  "name": "techy-jokes-webpack",
+  "name": "techy-jokes-reactpack",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/techy-jokes-webpack/src",
+  "sourceRoot": "apps/techy-jokes-reactpack/src",
   "projectType": "application",
   "targets": {
     "build": {
@@ -10,19 +10,19 @@
       "defaultConfiguration": "production",
       "options": {
         "compiler": "babel",
-        "outputPath": "dist/apps/techy-jokes-webpack",
-        "index": "apps/techy-jokes-webpack/src/index.html",
+        "outputPath": "dist/apps/techy-jokes-reactpack",
+        "index": "apps/techy-jokes-reactpack/src/index.html",
         "baseHref": "/",
-        "main": "apps/techy-jokes-webpack/src/main.tsx",
-        "tsConfig": "apps/techy-jokes-webpack/tsconfig.app.json",
+        "main": "apps/techy-jokes-reactpack/src/main.tsx",
+        "tsConfig": "apps/techy-jokes-reactpack/tsconfig.app.json",
         "assets": [
-          "apps/techy-jokes-webpack/src/favicon.ico",
-          "apps/techy-jokes-webpack/src/assets"
+          "apps/techy-jokes-reactpack/src/favicon.ico",
+          "apps/techy-jokes-reactpack/src/assets"
         ],
         "styles": [],
         "scripts": [],
         "isolatedConfig": true,
-        "webpackConfig": "apps/techy-jokes-webpack/webpack.config.js"
+        "webpackConfig": "apps/techy-jokes-reactpack/webpack.config.js"
       },
       "configurations": {
         "development": {
@@ -34,8 +34,8 @@
         "production": {
           "fileReplacements": [
             {
-              "replace": "apps/techy-jokes-webpack/src/environments/environment.ts",
-              "with": "apps/techy-jokes-webpack/src/environments/environment.prod.ts"
+              "replace": "apps/techy-jokes-reactpack/src/environments/environment.ts",
+              "with": "apps/techy-jokes-reactpack/src/environments/environment.prod.ts"
             }
           ],
           "optimization": true,
@@ -48,38 +48,35 @@
       }
     },
     "gh-pages": {
-      "command": "npx nx build techy-jokes-webpack --baseHref=/nx-react-native-monorepo-jokes --prod && node gh-pages.js",
+      "command": "npx nx build techy-jokes-reactpack --baseHref=/nx-react-native-monorepo-jokes --prod && node gh-pages.js",
       "cwd": "{projectRoot}"
     },
     "serve": {
       "executor": "@nx/webpack:dev-server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "techy-jokes-webpack:build",
+        "buildTarget": "techy-jokes-reactpack:build",
         "hmr": true
       },
       "configurations": {
         "development": {
-          "buildTarget": "techy-jokes-webpack:build:development"
+          "buildTarget": "techy-jokes-reactpack:build:development"
         },
         "production": {
-          "buildTarget": "techy-jokes-webpack:build:production",
+          "buildTarget": "techy-jokes-reactpack:build:production",
           "hmr": false
         }
       }
     },
     "lint": {
       "executor": "@nx/eslint:lint",
-      "outputs": ["{options.outputFile}"],
-      "options": {
-        "lintFilePatterns": ["apps/techy-jokes-webpack/**/*.{ts,tsx,js,jsx}"]
-      }
+      "outputs": ["{options.outputFile}"]
     },
     "test": {
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "apps/techy-jokes-webpack/jest.config.ts"
+        "jestConfig": "apps/techy-jokes-reactpack/jest.config.ts"
       }
     }
   },

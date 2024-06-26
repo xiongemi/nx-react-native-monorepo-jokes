@@ -111,6 +111,9 @@ yarn-error.log
 apps/techy-jokes-e2e/artifacts
 
 .nx/cache
+.nx/workspace-data
 
 # Next.js
 .next
+# Ignore Gradle build output directory
+build

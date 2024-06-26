@@ -29,6 +29,7 @@ const rollupPlugin = (matchers: RegExp[]) => ({
 });
 
 export default defineConfig({
+  root: __dirname,
   cacheDir: '../../node_modules/.vite/techy-jokes-vite',
   define: {
     global: 'window',
@@ -42,6 +43,9 @@ export default defineConfig({
   },
 
   build: {
+    reportCompressedSize: true,
+    commonjsOptions: { transformMixedEsModules: true },
+    outDir: '../../dist/apps/techy-jokes-vite',
     rollupOptions: {
       plugins: [rollupPlugin([/react-native-vector-icons/])],
     },
@@ -53,7 +57,7 @@ export default defineConfig({
     fs: {
       // Allow serving files from one level up to the project root
       allow: ['..'],
-    }
+    },
   },
 
   preview: {
@@ -77,6 +81,11 @@ export default defineConfig({
   // },
 
   test: {
+    reporters: ['default'],
+    coverage: {
+      reportsDirectory: '../../coverage/apps/techy-jokes-vite',
+      provider: 'v8',
+    },
     globals: true,
     cache: { dir: '../../node_modules/.vitest' },
     environment: 'jsdom',

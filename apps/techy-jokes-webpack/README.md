@@ -49,7 +49,7 @@ Also, in web app's `project.json`, add `implicitDependencies`:
 
 ## Add Alias in webpack.config.ts
 
-In apps/techy-jokes-webpack/webpack.config.ts, add below alias:
+In apps/techy-jokes-reactpack/webpack.config.ts, add below alias:
 
 ```
   config.resolve.alias = {
@@ -239,14 +239,14 @@ For this example, the `gh-pages.js` look like:
 ```
 var ghpages = require('gh-pages');
 
-ghpages.publish('../../dist/apps/techy-jokes-webpack', function (err) {
+ghpages.publish('../../dist/apps/techy-jokes-reactpack', function (err) {
   if (!err) {
     console.error(err);
   }
 });
 ```
 
-- If your GitHub has a base href, run the build command with `--baseHref`. For example, my GitHub page is at https://xiongemi.github.io/nx-react-native-monorepo-jokes/, to build for it, the command is `nx build techy-jokes-webpack --baseHref=/nx-react-native-monorepo-jokes/`.
+- If your GitHub has a base href, run the build command with `--baseHref`. For example, my GitHub page is at https://xiongemi.github.io/nx-react-native-monorepo-jokes/, to build for it, the command is `nx build techy-jokes-reactpack --baseHref=/nx-react-native-monorepo-jokes/`.
 
 - Add a target in project.json:
 ```
@@ -259,7 +259,7 @@ ghpages.publish('../../dist/apps/techy-jokes-webpack', function (err) {
 For this example, the target would be:
 ```
     "gh-pages": {
-      "command": "npx nx build techy-jokes-webpack --prod --baseHref=/nx-react-native-monorepo-jokes && node gh-pages.js",
+      "command": "npx nx build techy-jokes-reactpack --prod --baseHref=/nx-react-native-monorepo-jokes && node gh-pages.js",
       "cwd": "{projectRoot}"
     },
 ```

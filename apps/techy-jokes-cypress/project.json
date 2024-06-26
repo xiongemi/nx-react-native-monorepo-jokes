@@ -1,0 +1,22 @@
+{
+  "name": "techy-jokes-cypress",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "targets": {
+    "e2e": {
+      "executor": "@nx/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/techy-jokes-cypress/cypress.config.ts",
+        "testingType": "e2e",
+        "devServerTarget": "techy-jokes:serve"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "techy-jokes:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
+}
