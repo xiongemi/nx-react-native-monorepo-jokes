@@ -132,6 +132,31 @@
     "upgrade": {
       "executor": "@nx/react-native:upgrade",
       "options": {}
+    },
+    "test1": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": ["echo test1"]
+      }
+    },
+    "test2": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": ["echo test2"]
+      }
+    },
+    "test3": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": ["echo test3"]
+      }
+    },
+    "test4": {
+      "dependsOn": ["test1", "test2", "test3"],
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": ["echo test4"]
+      }
     }
   },
   "tags": []
