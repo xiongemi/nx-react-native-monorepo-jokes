@@ -3,6 +3,8 @@
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/techy-jokes-vite/src",
   "projectType": "application",
+  "tags": [],
+  "implicitDependencies": ["techy-jokes"],
   "targets": {
     "build": {
       "executor": "@nx/vite:build",
@@ -54,7 +56,8 @@
         "production": {
           "buildTarget": "techy-jokes-vite:build:production"
         }
-      }
+      },
+      "dependsOn": ["build"]
     },
     "test": {
       "executor": "@nx/vite:test",
@@ -114,7 +117,5 @@
         }
       }
     }
-  },
-  "tags": [],
-  "implicitDependencies": ["techy-jokes"]
+  }
 }
