@@ -1,8 +1,5 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
-  "workspaceLayout": {
-    "projectNameAndRootFormat": "as-provided"
-  },
   "targetDefaults": {
     "build": {
       "dependsOn": ["^build"],
@@ -102,6 +99,5 @@
       }
     }
   },
-  "nxCloudAccessToken": "ZDdhZGMyNGUtODEyOC00YzRlLTkzY2QtYjFmZDNjM2U2ZjUwfHJlYWQtd3JpdGU=",
   "useLegacyCache": true
 }
