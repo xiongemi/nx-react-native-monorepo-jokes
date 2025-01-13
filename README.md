@@ -7,8 +7,14 @@
 ## Apps
 - techy-jokes: react native mobile app
     - `nx start techy-jokes`: start the native app
-- techy-jokes-react: react web app with ReactJs and vite
-    - `nx serve techy-jokes-react`: serve the web app
+- techy-jokes-cypress: cypress e2e project for react native app with react-native-web
+    - `nx e2e techy-jokes-cypress`: run e2e tests
+- techy-jokes-vite: web app for react native mobile app with vite and react-native-web
+    - `nx serve techy-jokes-vite`: serve the web app
+- techy-jokes-wepback: web app for react native mobile app with webpack and react-native-web
+    - `nx serve techy-jokes-webpack`: serve the web app
+- techy-jokes-web: react web app with ReactJs and vite
+    - `nx serve techy-jokes-web`: serve the web app
 
 
 
