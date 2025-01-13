@@ -119,3 +119,5 @@ apps/techy-jokes-e2e/artifacts
 build
 
 **/vite.config.{js,ts,mjs,mts,cjs,cts}.timestamp*
+
+storybook-static

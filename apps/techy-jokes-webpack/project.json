@@ -1,5 +1,5 @@
 {
-  "name": "techy-jokes-reactpack",
+  "name": "techy-jokes-webpack",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/techy-jokes-reactpack/src",
   "projectType": "application",
