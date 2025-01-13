@@ -21,7 +21,7 @@ export const createRootStore = (persistConfig: PersistConfig<RootState>) => {
         serializableCheck: false,
       });
       return isDevelopment
-        ? defaultMiddleware.concat(logger)
+        ? defaultMiddleware.concat(logger as any)
         : defaultMiddleware;
     },
     devTools: isDevelopment,
