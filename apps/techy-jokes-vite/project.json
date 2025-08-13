@@ -6,22 +6,6 @@
   "tags": [],
   "implicitDependencies": ["techy-jokes"],
   "targets": {
-    "build": {
-      "executor": "@nx/vite:build",
-      "outputs": ["{options.outputPath}"],
-      "defaultConfiguration": "production",
-      "options": {
-        "outputPath": "dist/apps/techy-jokes-vite"
-      },
-      "configurations": {
-        "development": {
-          "mode": "development"
-        },
-        "production": {
-          "mode": "production"
-        }
-      }
-    },
     "gh-pages": {
       "command": "npx nx build techy-jokes-vite --base=/nx-react-native-monorepo-jokes/ --prod && node gh-pages.js",
       "cwd": "{projectRoot}"
@@ -65,13 +49,6 @@
       "options": {
         "passWithNoTests": true,
         "reportsDirectory": "../../coverage/apps/techy-jokes-vite"
-      }
-    },
-    "lint": {
-      "executor": "@nx/linter:eslint",
-      "outputs": ["{options.outputFile}"],
-      "options": {
-        "lintFilePatterns": ["apps/techy-jokes-vite/**/*.{ts,tsx,js,jsx}"]
       }
     },
     "storybook": {

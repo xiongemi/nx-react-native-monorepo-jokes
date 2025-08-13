@@ -65,7 +65,10 @@
       "!{projectRoot}/**/*.stories.@(js|jsx|ts|tsx|mdx)",
       "!{projectRoot}/.storybook/**/*",
       "!{projectRoot}/tsconfig.storybook.json",
-      "!{projectRoot}/test/**/*"
+      "!{projectRoot}/test/**/*",
+      "!{projectRoot}/cypress/**/*",
+      "!{projectRoot}/**/*.cy.[jt]s?(x)",
+      "!{projectRoot}/cypress.config.[jt]s"
     ],
     "sharedGlobals": []
   },
@@ -107,6 +110,34 @@
         "buildStorybookTargetName": "build:storybook",
         "testStorybookTargetName": "test:storybook",
         "staticStorybookTargetName": "static:storybook"
+      }
+    },
+    {
+      "plugin": "@nx/react-native/plugin",
+      "options": {
+        "startTargetName": "react-native:start",
+        "bundleTargetName": "react-native:bundle",
+        "podInstallTargetName": "react-native:pod-install",
+        "runIosTargetName": "react-native:run-ios",
+        "runAndroidTargetName": "react-native:run-android",
+        "buildIosTargetName": "react-native:build-ios",
+        "buildAndroidTargetName": "react-native:build-android",
+        "syncDepsTargetName": "react-native:sync-deps"
+      }
+    },
+    {
+      "plugin": "@nx/cypress/plugin",
+      "options": {
+        "targetName": "e2e",
+        "openTargetName": "open-cypress",
+        "componentTestingTargetName": "component-test",
+        "ciTargetName": "e2e-ci"
+      }
+    },
+    {
+      "plugin": "@nx/eslint/plugin",
+      "options": {
+        "targetName": "eslint:lint"
       }
     }
   ]

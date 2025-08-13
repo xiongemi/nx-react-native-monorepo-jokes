@@ -48,7 +48,6 @@
     "@nx/eslint-plugin": "*",
     "@nx/jest": "*",
     "@nx/js": "*",
-    "@nx/linter": "*",
     "@nx/react-native": "*",
     "@nx/rollup": "*",
     "@nx/storybook": "*",
