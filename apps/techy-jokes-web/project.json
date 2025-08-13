@@ -61,10 +61,6 @@
         "passWithNoTests": true,
         "reportsDirectory": "../../coverage/apps/techy-jokes-web"
       }
-    },
-    "lint": {
-      "executor": "@nx/eslint:lint",
-      "outputs": ["{options.outputFile}"]
     }
   }
 }
