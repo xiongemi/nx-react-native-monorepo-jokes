@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Bookmarks } from './bookmarks';
 
 import { within } from '@storybook/testing-library';

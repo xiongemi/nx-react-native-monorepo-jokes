@@ -99,7 +99,6 @@
       }
     }
   },
-  "useLegacyCache": true,
   "plugins": [
     {
       "plugin": "@nx/storybook/plugin",

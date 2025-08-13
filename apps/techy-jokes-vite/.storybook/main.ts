@@ -5,7 +5,7 @@ const config: StorybookConfig = {
     '../src/app/**/*.stories.@(js|jsx|ts|tsx|mdx)',
     '../../techy-jokes/src/app/**/*.stories.@(js|jsx|ts|tsx|mdx)',
   ],
-  addons: ['@storybook/addon-essentials', '@storybook/addon-interactions'],
+  addons: ['@storybook/addon-docs'],
   framework: {
     name: '@storybook/react-vite',
     options: {

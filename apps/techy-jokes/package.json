@@ -7,7 +7,6 @@
     "react-native-svg-transformer": "*",
     "react": "*",
     "@testing-library/react-native": "*",
-    "@storybook/react": "*",
     "@storybook/testing-library": "*",
     "@storybook/jest": "*",
     "@react-navigation/native": "*",

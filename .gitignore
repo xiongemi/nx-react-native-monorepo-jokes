@@ -123,3 +123,9 @@ build
 storybook-static
 vite.config.*.timestamp*
 vitest.config.*.timestamp*
+
+# ai tools
+.cursorindexingignore
+.specstory/
+.cursor/rules/nx-rules.mdc
+.github/instructions/nx.instructions.md
