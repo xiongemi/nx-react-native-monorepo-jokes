@@ -55,8 +55,10 @@ export function CarouselCard<ID_TYPE>({
   return (
     <Card sx={{ minWidth: 275 }} raised={true}>
       <CardContent>
-        {lines?.map((line) => (
-          <Typography variant="body1">{line}</Typography>
+        {lines?.map((line, index) => (
+          <Typography variant="body1" key={index}>
+            {line}
+          </Typography>
         ))}
       </CardContent>
       <CardActions>

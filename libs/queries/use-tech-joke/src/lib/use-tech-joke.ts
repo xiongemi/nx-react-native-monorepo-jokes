@@ -1,4 +1,4 @@
-import { useQuery } from '@tanstack/react-query';
+import { useQuery, UseQueryOptions } from '@tanstack/react-query';
 import { TechJokeResponse } from './tech-joke-response.interface';
 
 export const fetchTechJoke = async (amount = 1): Promise<TechJokeResponse> => {
@@ -9,10 +9,14 @@ export const fetchTechJoke = async (amount = 1): Promise<TechJokeResponse> => {
   return data;
 };
 
-export const useTechJoke = (amount = 1) => {
+export const useTechJoke = (
+  amount = 1,
+  options?: Partial<UseQueryOptions<TechJokeResponse, string | number>>
+) => {
   return useQuery<TechJokeResponse, string | number>({
     queryKey: ['tech-joke', amount],
     queryFn: () => fetchTechJoke(amount),
     enabled: false,
+    ...options,
   });
 };
