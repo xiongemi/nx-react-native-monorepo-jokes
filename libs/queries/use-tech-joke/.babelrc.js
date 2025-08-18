@@ -16,6 +16,7 @@ module.exports = function (api) {
       test: {
         presets: [
           ['module:@react-native/babel-preset', { useTransformReactJSX: true }],
+          '@babel/preset-typescript',
         ],
       },
     },

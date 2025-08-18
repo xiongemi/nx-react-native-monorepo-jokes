@@ -5,6 +5,9 @@ export const fetchTechJoke = async (amount = 1): Promise<TechJokeResponse> => {
   const response = await fetch(
     `https://v2.jokeapi.dev/joke/Programming?amount=${amount}`
   );
+  if (!response.ok) {
+    throw new Error('Network response was not ok');
+  }
   const data: TechJokeResponse = await response.json();
   return data;
 };

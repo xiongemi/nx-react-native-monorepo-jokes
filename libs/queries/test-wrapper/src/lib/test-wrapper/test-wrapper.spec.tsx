@@ -1,14 +1,13 @@
 import React from 'react';
-import { render } from '@testing-library/react-native';
+import { render } from '@testing-library/react';
 
 import TestWrapper from './test-wrapper';
-import { Text } from 'react-native';
 
 describe('TestWrapper', () => {
   it('should render successfully', () => {
     const { getByText } = render(
       <TestWrapper>
-        <Text>test</Text>
+        <div>test</div>
       </TestWrapper>
     );
     expect(getByText('test')).toBeTruthy();

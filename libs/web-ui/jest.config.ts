@@ -1,5 +1,5 @@
 export default {
-  displayName: 'lib2',
+  displayName: 'web-ui',
   preset: '../../jest.preset.js',
   transform: {
     '^(?!.*\\.(js|jsx|ts|tsx|css|json)$)': '@nx/react/plugins/jest',
