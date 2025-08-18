@@ -10,47 +10,6 @@
       "command": "npx nx build techy-jokes-vite --base=/nx-react-native-monorepo-jokes/ --prod && node gh-pages.js",
       "cwd": "{projectRoot}"
     },
-    "serve": {
-      "executor": "@nx/vite:dev-server",
-      "defaultConfiguration": "development",
-      "options": {
-        "buildTarget": "techy-jokes-vite:build"
-      },
-      "configurations": {
-        "development": {
-          "buildTarget": "techy-jokes-vite:build:development",
-          "hmr": true
-        },
-        "production": {
-          "buildTarget": "techy-jokes-vite:build:production",
-          "hmr": false
-        }
-      }
-    },
-    "preview": {
-      "executor": "@nx/vite:preview-server",
-      "defaultConfiguration": "development",
-      "options": {
-        "buildTarget": "techy-jokes-vite:build"
-      },
-      "configurations": {
-        "development": {
-          "buildTarget": "techy-jokes-vite:build:development"
-        },
-        "production": {
-          "buildTarget": "techy-jokes-vite:build:production"
-        }
-      },
-      "dependsOn": ["build"]
-    },
-    "test": {
-      "executor": "@nx/vite:test",
-      "outputs": ["{options.reportsDirectory}"],
-      "options": {
-        "passWithNoTests": true,
-        "reportsDirectory": "../../coverage/apps/techy-jokes-vite"
-      }
-    },
     "storybook": {
       "executor": "@nx/storybook:storybook",
       "options": {

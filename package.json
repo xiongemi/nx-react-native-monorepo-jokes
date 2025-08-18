@@ -36,7 +36,7 @@
     "@nx/react-native": "^21.3.11",
     "@nx/rollup": "21.3.11",
     "@nx/storybook": "21.3.11",
-    "@nx/vite": "21.3.11",
+    "@nx/vite": "^21.3.11",
     "@nx/web": "21.3.11",
     "@nx/webpack": "21.3.11",
     "@nx/workspace": "21.3.11",
