@@ -18,7 +18,6 @@
     "redux-persist": "*",
     "@reduxjs/toolkit": "*",
     "redux-logger": "*",
-    "@testing-library/jest-native": "*",
     "react-native-paper": "*",
     "react-redux": "*",
     "redux-mock-store": "*",

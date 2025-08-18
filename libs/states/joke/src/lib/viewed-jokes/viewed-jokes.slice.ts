@@ -12,7 +12,7 @@ export interface ViewedJokesEntity<ID_TYPE = number> {
   lines: string[];
 }
 
-export type ViewedJokesState<ID_TYPE = number> = EntityState<ViewedJokesEntity<ID_TYPE>>;
+export type ViewedJokesState<ID_TYPE = number> = EntityState<ViewedJokesEntity<ID_TYPE>, number>;
 
 export const viewedJokesAdapter = createEntityAdapter<ViewedJokesEntity>();
 

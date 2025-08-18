@@ -6,23 +6,27 @@ import {
   initialRootState,
 } from '@nx-react-native-monorepo-jokes/states/joke';
 import * as ReactQuery from '@tanstack/react-query';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import Facts from './jokes';
 import { Provider } from 'react-redux';
 
-jest.spyOn(ReactQuery, 'useQuery').mockImplementation(
-  jest.fn().mockReturnValue({
+jest.mock('@tanstack/react-query', () => ({
+  ...jest.requireActual('@tanstack/react-query'),
+  useQuery: jest.fn().mockReturnValue({
     data: 'random cat fact',
     isLoading: false,
     isSuccess: true,
     refetch: jest.fn().mockReturnValue(Promise.resolve('random cat fact')),
     isFetching: false,
     isError: false,
-  })
-);
+  }),
+}));
 
 describe('Facts', () => {
   const mockStore = configureStore<RootState>([]);
+  const Stack = createNativeStackNavigator();
 
   let store: MockStoreEnhanced<RootState>;
 
@@ -34,7 +38,11 @@ describe('Facts', () => {
   it('should render successfully', () => {
     const { root } = render(
       <Provider store={store}>
-        <Facts />
+        <NavigationContainer>
+          <Stack.Navigator>
+            <Stack.Screen name="Jokes" component={Facts} />
+          </Stack.Navigator>
+        </NavigationContainer>
       </Provider>
     );
     expect(root).toBeTruthy();

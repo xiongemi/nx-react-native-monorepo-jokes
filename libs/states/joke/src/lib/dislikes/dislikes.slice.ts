@@ -13,11 +13,9 @@ export interface DislikesEntity<ID_TYPE = number> {
   dateAdded: number;
 }
 
-export type DislikesState<ID_TYPE = number> = EntityState<DislikesEntity<ID_TYPE>>;
+export type DislikesState<ID_TYPE = number> = EntityState<DislikesEntity<ID_TYPE>, number>;
 
-export const dislikesAdapter = createEntityAdapter<DislikesEntity>({
-  selectId: (dislikes) => dislikes.id,
-});
+export const dislikesAdapter = createEntityAdapter<DislikesEntity>();
 
 export const initialDislikesState: DislikesState = dislikesAdapter.getInitialState();
 
