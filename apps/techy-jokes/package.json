@@ -57,8 +57,6 @@
     "@react-native-community/cli-platform-android": "*",
     "@react-native/babel-preset": "*",
     "@redux-devtools/extension": "*",
-    "@storybook/addon-essentials": "*",
-    "@storybook/addon-interactions": "*",
     "@storybook/core-server": "*",
     "@storybook/react-vite": "*",
     "@storybook/test-runner": "*",
