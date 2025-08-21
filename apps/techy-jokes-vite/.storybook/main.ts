@@ -10,7 +10,7 @@ const config: StorybookConfig = {
     name: '@storybook/react-vite',
     options: {
       builder: {
-        viteConfigPath: 'apps/techy-jokes-vite/vite.config.ts',
+        viteConfigPath: 'vite.config.ts',
       },
     },
   },

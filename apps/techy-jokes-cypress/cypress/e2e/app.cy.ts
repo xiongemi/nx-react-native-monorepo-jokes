@@ -1,11 +1,11 @@
-import { getGreeting } from '../support/app.po';
+describe('techy-jokes', () => {
+  beforeEach(() => {
+    cy.visit('/');
+  });
 
-describe('techy-jokes-cypress', () => {
-  beforeEach(() => cy.visit('/'));
-
-  it('should display welcome message', () => {
-
-    // Function helper example, see `../support/app.po.ts` file
-    getGreeting().contains(/Jokes/);
+  it('should navigate to bookmarks and back', () => {
+    cy.get('[data-testid="jokes-page"]').should('be.visible');
+    cy.get('[data-testid="bookmarks-button"]').click();
+    cy.get('[data-testid="bookmarks-page"]').should('be.visible');
   });
 });
