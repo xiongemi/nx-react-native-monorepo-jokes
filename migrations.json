@@ -1,28 +1,27 @@
 {
   "migrations": [
     {
-      "version": "21.4.0-beta.0",
-      "cli": "nx",
-      "description": "Remove deprecated dependencies from package.json",
-      "factory": "./src/migrations/update-21-4-0/remove-deprecated-deps",
-      "package": "@nx/react-native",
-      "name": "update-21-4-0-remove-deprecated-deps"
+      "version": "21.5.0-beta.2",
+      "description": "Migrate the legacy 'development' custom condition to a workspace-unique custom condition name.",
+      "factory": "./src/migrations/update-21-5-0/migrate-development-custom-condition",
+      "package": "@nx/js",
+      "name": "migrate-development-custom-condition"
     },
     {
-      "version": "21.4.0-beta.0",
+      "version": "21.4.1-beta.1",
       "cli": "nx",
-      "description": "Run nx upgrade for each React Native project",
-      "factory": "./src/migrations/update-21-4-0/upgrade-react-native-projects",
-      "package": "@nx/react-native",
-      "name": "update-21-4-0-upgrade-react-native-projects"
-    },
-    {
-      "version": "21.4.0-beta.12",
-      "cli": "nx",
-      "description": "Change dev.nx.gradle.project-graph to version 0.1.5 in build file",
-      "factory": "./src/migrations/21-4-0/change-plugin-version-0-1-5",
+      "description": "Change dev.nx.gradle.project-graph to version 0.1.6 in build file",
+      "factory": "./src/migrations/21-4-1/change-plugin-version-0-1-6",
       "package": "@nx/gradle",
-      "name": "change-plugin-version-0-1-5"
+      "name": "change-plugin-version-0-1-6"
+    },
+    {
+      "version": "21.5.1-beta.5",
+      "cli": "nx",
+      "description": "Change dev.nx.gradle.project-graph to version 0.1.7 in build file",
+      "factory": "./src/migrations/21-5-1/change-plugin-version-0-1-7",
+      "package": "@nx/gradle",
+      "name": "change-plugin-version-0-1-7"
     }
   ]
 }
